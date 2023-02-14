@@ -18,8 +18,8 @@
 
 Клонирование репозитория и переход в проект:
 ```bash
-git clone https://github.com/psevdoslon-ya/infra_sp2.git
-cd infra_sp2
+git clone https://github.com/psevdoslon-ya/yamdb_final.git
+cd yamdb_final
 ```
 
 Создание и активация виртуального окружения:
