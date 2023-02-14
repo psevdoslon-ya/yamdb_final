@@ -63,7 +63,8 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
-          udo docker-compose stop
+          sudo systemctl stop nginx
+          sudo docker-compose stop
           sudo docker-compose rm web
           touch .env
           echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
