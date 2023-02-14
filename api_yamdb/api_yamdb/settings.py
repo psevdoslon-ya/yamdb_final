@@ -24,16 +24,20 @@ logging.basicConfig(
     ),
     handlers=[logging.StreamHandler(stream=sys.stdout)],
 )
+
 load_dotenv(find_dotenv())
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv(
     'DJANGO_SECRET_KEY', 'p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs'
 )
+
 TOKEN_SECRET = os.getenv(
     'TOKEN_SECRET_KEY',
     ('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzb21lIjoicGF5bG9hZCJ9.Joh1R2dY'
      'zkRvDkqv3sygm5YyK8Gi4ShZqbhK2gxcs2U')
 )
+
 if not all([TOKEN_SECRET, SECRET_KEY]):
     message = (
         'Не удалось загрузить все переменные из окружения. Переменные:\n'
@@ -42,7 +46,6 @@ if not all([TOKEN_SECRET, SECRET_KEY]):
     )
     logging.critical(message)
     sys.exit(message)
-
 
 # Application definition
 
@@ -139,7 +142,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = ['/app/data']
+STATICFILES_DIRS = ['data', '/app/data']
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
