@@ -48,7 +48,8 @@ jobs:
         uses: docker/build-push-action@v2 
         with:
           push: true
-          tags: psevdoslon/api_yamdb:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/api_yamdb:latest
+          context: api_yamdb
 
   deploy:
     runs-on: ubuntu-latest
