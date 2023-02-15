@@ -1,8 +1,8 @@
 from csv import DictReader
-from django.core.management import BaseCommand
 
-from reviews.models import Review, Comment, User
-from reviews.models import Category, Genre, Title, GenreTitle
+from django.core.management import BaseCommand
+from reviews.models import (Category, Comment, Genre, GenreTitle, Review,
+                            Title, User)
 
 DICT = {
     User: 'users.csv',

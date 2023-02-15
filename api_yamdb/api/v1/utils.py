@@ -1,9 +1,9 @@
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from rest_framework.exceptions import ValidationError
-
-from .messages import subject, from_email, message
 from reviews.models import User
+
+from .messages import from_email, message, subject
 
 
 def get_user_or_false(data):

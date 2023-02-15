@@ -1,34 +1,22 @@
 from django.contrib.auth.tokens import default_token_generator
-from django.shortcuts import get_object_or_404
-from rest_framework import filters, viewsets, permissions, status
-from rest_framework.decorators import api_view, action, permission_classes
-from rest_framework.response import Response
-from django_filters.rest_framework import DjangoFilterBackend
 from django.db.models import Avg
+from django.shortcuts import get_object_or_404
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters, permissions, status, viewsets
+from rest_framework.decorators import action, api_view, permission_classes
+from rest_framework.response import Response
+from reviews.models import Category, Genre, Review, Title, User
 
-from .serializers import get_tokens_for_user, UserRegistrationSerializer
-from reviews.models import User, Title, Category, Review, Genre
 from .filters import TitleFilter
 from .mixins import ModelMixinSet
-from .permissions import (
-    AdminModeratorAuthorPermission,
-    AdminOnly,
-    IsAdminUserOrReadOnly,
-)
-from .serializers import (
-    CategorySerializer,
-    CommentSerializer,
-    GenreSerializer,
-    ReviewSerializer,
-    TitleReadSerializer,
-    TitleWriteSerializer,
-    UserSerializer,
-    UserWithoutRoleSerializer,
-)
-from .utils import (
-    validate_request_data,
-    send_confirmation_email,
-)
+from .permissions import (AdminModeratorAuthorPermission, AdminOnly,
+                          IsAdminUserOrReadOnly)
+from .serializers import (CategorySerializer, CommentSerializer,
+                          GenreSerializer, ReviewSerializer,
+                          TitleReadSerializer, TitleWriteSerializer,
+                          UserRegistrationSerializer, UserSerializer,
+                          UserWithoutRoleSerializer, get_tokens_for_user)
+from .utils import send_confirmation_email, validate_request_data
 
 
 class CategoryViewSet(ModelMixinSet):

@@ -1,7 +1,6 @@
 from django.core.management import BaseCommand
-
-from reviews.models import Review, Comment, User
-from reviews.models import Category, Genre, Title, GenreTitle
+from reviews.models import (Category, Comment, Genre, GenreTitle, Review,
+                            Title, User)
 
 MODELS = [User, Review, Comment, Category, Genre, Title, GenreTitle]
 
